@@ -36,12 +36,14 @@ export class AppComponent implements OnInit {
       dob: new FormControl(null),
       // pass the default property value
       gender: new FormControl('male'),
-      street: new FormControl(null),
-      // pass the default property value
-      country: new FormControl('India'),
-      city: new FormControl(null),
-      region: new FormControl(null),
-      postal: new FormControl(null),
+      address: new FormGroup({
+        street: new FormControl(null, Validators.required),
+        // pass the default property value
+        country: new FormControl('India', Validators.required),
+        city: new FormControl(null),
+        region: new FormControl(null),
+        postal: new FormControl(null, Validators.required),
+      }),
     });
   }
 
