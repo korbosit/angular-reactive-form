@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   FormControl,
   Validators,
+  FormArray,
 } from '@angular/forms';
 import { OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -44,6 +45,12 @@ export class AppComponent implements OnInit {
         region: new FormControl(null),
         postal: new FormControl(null, Validators.required),
       }),
+      skills: new FormArray([
+        new FormControl(null, Validators.required),
+        new FormControl(null, Validators.required),
+        new FormControl(null, Validators.required),
+        new FormControl(null, Validators.required),
+      ]),
     });
   }
 
