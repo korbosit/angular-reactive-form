@@ -8,11 +8,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, ReactiveFormsModule],
+  imports: [RouterOutlet, FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
