@@ -5,6 +5,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
   FormControl,
+  Validators,
 } from '@angular/forms';
 import { OnInit } from '@angular/core';
 
@@ -27,9 +28,9 @@ export class AppComponent implements OnInit {
     // Need to pass the object
     // 3. Connect in HTML with Help formControlName="key"
     this.reactiveForm = new FormGroup({
-      firstname: new FormControl(null),
-      lastname: new FormControl(null),
-      email: new FormControl(null),
+      firstname: new FormControl(null, Validators.required),
+      lastname: new FormControl(null, Validators.required),
+      email: new FormControl(null, [Validators.required, Validators.email]),
       username: new FormControl(null),
       dob: new FormControl(null),
       // pass the default property value
