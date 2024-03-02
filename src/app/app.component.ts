@@ -51,6 +51,15 @@ export class AppComponent implements OnInit {
         // new FormControl(null, Validators.required),
         // new FormControl(null, Validators.required),
       ]),
+      experience: new FormArray([
+        // new FormGroup({
+        //   company: new FormControl(null),
+        //   position: new FormControl(null),
+        //   totalExp: new FormControl(null),
+        //   start: new FormControl(null),
+        //   end: new FormControl(null),
+        // }),
+      ]),
     });
   }
 
@@ -68,5 +77,22 @@ export class AppComponent implements OnInit {
   OnSkillDelete(index: number) {
     const controls = <FormArray>this.reactiveForm.get('skills');
     controls.removeAt(index);
+  }
+
+  AddExperience() {
+    const formgroup = new FormGroup({
+      company: new FormControl(null),
+      position: new FormControl(null),
+      totalExp: new FormControl(null),
+      start: new FormControl(null),
+      end: new FormControl(null),
+    });
+
+    (<FormArray>this.reactiveForm.get('experience')).push(formgroup);
+  }
+
+  DeleteExperience(index: number) {
+    const frmArray = <FormArray>this.reactiveForm.get('experience');
+    frmArray.removeAt(index);
   }
 }
