@@ -47,9 +47,9 @@ export class AppComponent implements OnInit {
       }),
       skills: new FormArray([
         new FormControl(null, Validators.required),
-        new FormControl(null, Validators.required),
-        new FormControl(null, Validators.required),
-        new FormControl(null, Validators.required),
+        // new FormControl(null, Validators.required),
+        // new FormControl(null, Validators.required),
+        // new FormControl(null, Validators.required),
       ]),
     });
   }
@@ -57,5 +57,16 @@ export class AppComponent implements OnInit {
   // 4.
   OnFormSubmitted() {
     console.log(this.reactiveForm);
+  }
+
+  AddSkills() {
+    (<FormArray>this.reactiveForm.get('skills')).push(
+      new FormControl(null, Validators.required)
+    );
+  }
+
+  OnSkillDelete(index: number) {
+    const controls = <FormArray>this.reactiveForm.get('skills');
+    controls.removeAt(index);
   }
 }
