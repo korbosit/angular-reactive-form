@@ -21,6 +21,7 @@ import { CustomValidators } from './Validators/noSpaceAllowed.validator';
 })
 export class AppComponent implements OnInit {
   title = 'angular-reactive-form';
+  formStatus: string = '';
 
   // 1. Create
   // reactiveForm: FormGroup = new FormGroup({});
@@ -71,6 +72,24 @@ export class AppComponent implements OnInit {
         //   end: new FormControl(null),
         // }),
       ]),
+    });
+
+    // LISTENER AND EVENTS
+    // this.reactiveForm.get('firstname').valueChanges.subscribe((value) => {
+    //   console.log(value);
+    // });
+
+    // this.reactiveForm.valueChanges.subscribe((data) => {
+    //   console.log(data);
+    // });
+
+    // this.reactiveForm.get('username').statusChanges.subscribe((data) => {
+    //   console.log(data);
+    // });
+
+    this.reactiveForm.statusChanges.subscribe((status) => {
+      console.log(status);
+      this.formStatus = status;
     });
   }
 
