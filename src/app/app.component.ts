@@ -40,7 +40,11 @@ export class AppComponent implements OnInit {
         CustomValidators.noSpaceAllowed,
       ]),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      username: new FormControl(null),
+      username: new FormControl(
+        null,
+        Validators.required,
+        CustomValidators.checkUserName
+      ),
       dob: new FormControl(null),
       // pass the default property value
       gender: new FormControl('male'),
